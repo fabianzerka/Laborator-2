@@ -23,6 +23,7 @@ document.getElementById("singleplayer").addEventListener("click", () => {
 });
 
 document.getElementById("twoplayer").addEventListener("click", () => {
+  document.getElementById("player2").required = true;
   mainSection.style.display = "none";
   playerNamesSection.style.display = "block";
   twoplayer = true;
@@ -93,19 +94,34 @@ tdElements.forEach((cell) => {
 resetButton.addEventListener("click", () => {
   let winnerMessage = "";
   if (checkWin("X")) {
-    winnerMessage = `Lojtari ${player1Name} fitoi! Dëshironi të luani përsëri?`;
+    winnerMessage = `${player1Name} won! Do you want to play again?`;
   } else if (checkWin("O")) {
-    winnerMessage = `Lojtari ${player2Name} fitoi! Dëshironi të luani përsëri?`;
+    winnerMessage = `${player2Name} won! Do you want to play again?`;
   } else {
-    winnerMessage = "It's a draw! Dëshironi të luani përsëri?";
+    winnerMessage = "It's a draw! Do you want to play again?";
   }
 
   const popup = confirm(winnerMessage);
 
   if (popup) {
+    updateTable();
     resetBoard();
   }
 });
+
+function updateTable() {
+  const player1Score = document.getElementById("player1-score");
+  const draws = document.getElementById("draws");
+  const player2Score = document.getElementById("player2-score");
+
+  if (checkWin("X")) {
+    player1Score.textContent = parseInt(player1Score.textContent) + 1;
+  } else if (checkWin("O")) {
+    player2Score.textContent = parseInt(player2Score.textContent) + 1;
+  } else {
+    draws.textContent = parseInt(draws.textContent) + 1;
+  }
+}
 
 function insertIcon(cell, icon) {
   if (!cell.innerHTML) {
