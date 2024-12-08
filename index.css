@@ -3,25 +3,50 @@ body {
   text-align: center;
   margin: 20px;
 }
+
+#main,
+#player-names,
 #game {
-  display: none;
   margin-top: 20px;
 }
+
+#status {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 #board table {
   border-collapse: collapse;
   width: 400px;
   height: 400px;
   margin: 0 auto;
 }
+
 #board td {
   border: 1px solid black;
+  width: 33%;
+  height: 33%;
   text-align: center;
   vertical-align: middle;
-  font-size: 24px;
   cursor: pointer;
 }
+
+#board td img {
+  width: 80%;
+  height: 80%;
+}
+
 button {
   margin: 10px;
   padding: 10px 20px;
   font-size: 16px;
+  cursor: pointer;
+}
+#reset {
+  display: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }

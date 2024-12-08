@@ -3,17 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laborator 3</title>
+    <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <section id="main">
-      <h1>Welcome!</h1>
-      <h2>Please select play mode</h2>
+      <h1>Welcome to Tic-Tac-Toe!</h1>
+      <h2>Select Play Mode</h2>
       <button id="singleplayer">1 Player</button>
       <button id="twoplayer">2 Players</button>
     </section>
-    <section id="game">
+
+    <section id="player-names" style="display: none">
+      <h2>Enter Player Names</h2>
+      <form id="player-form">
+        <div id="player-one-input">
+          <label for="player1">Player 1 Name:</label>
+          <input type="text" id="player1" required />
+        </div>
+        <div id="player-two-input">
+          <label for="player2">Player 2 Name:</label>
+          <input type="text" id="player2" />
+        </div>
+        <button type="submit">Start Game</button>
+      </form>
+    </section>
+
+    <section id="game" style="display: none">
+      <div id="status"></div>
       <div id="board">
         <table>
           <tr>
@@ -33,7 +50,9 @@
           </tr>
         </table>
       </div>
+      <button id="reset" style="display: none">Play Again</button>
     </section>
+
     <script src="index.js"></script>
   </body>
 </html>
